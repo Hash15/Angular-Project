@@ -1,0 +1,37 @@
+  <section class="vh-100" style="background-color: #d8c6e6;">
+    <div style="padding-top: 50px;">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-8">
+          <div class="card" style="border-radius: 1rem;height: 300px;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img
+                  src="assets/profile.png" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;padding-left: 80px;"
+                />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <div>
+                  <h2 class="page-header">Welcome {{user.name}}</h2>
+                  </div>
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr class="table-warning">
+                      <td >Username : {{user.name}}</td>
+                    </tr>
+                    <tr class="table-warning">
+                      <td >Email : {{user.email}}</td>
+                    </tr>
+                    <tr class="table-warning">
+                      <td >Phone : {{user.phone}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

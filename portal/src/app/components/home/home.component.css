@@ -1,0 +1,16 @@
+.bg-1 {  /* Green */
+    padding: auto;
+    opacity: 10;
+  }
+  .bgimg {
+    background-position: center;
+    background-size: cover;
+    min-height: 50%;
+  }
+  .home{
+    position: absolute;
+    align-items: center;
+    
+    left: 65%;
+    
+}

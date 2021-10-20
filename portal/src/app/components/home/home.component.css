@@ -8,9 +8,33 @@
     min-height: 50%;
   }
   .home{
-    position: absolute;
+    /*position: relative;*/
     align-items: center;
-    
-    left: 65%;
-    
-}
+    display: flex;
+    text-align: center;
+    /*left: 35%;*/
+    justify-content: center;
+  
+  }
+  .centered {
+    font-size: 10vh;
+    color: azure;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .centered1 {
+    font-size: 7vh;
+    color: blanchedalmond;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .centered2 {
+    position: absolute;
+    top: 55%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+  }

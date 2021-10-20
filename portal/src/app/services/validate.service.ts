@@ -35,6 +35,11 @@ export class ValidateService {
     return re.test(email);
   }
 
+  validatePhone(phone: string){
+    const re = /^\d{10}$/;
+    return re.test(phone);
+  }
+
   validatePassword(password: any){
     const re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/
     return re.test(password);

@@ -54,6 +54,11 @@ ngOnInit(){
      return false;
     }
 
+    if(!this.validateService.validatePhone(user.phone)){
+      this.flashMessage.show('Please use a valid phone no',{cssClass: 'alert-danger',timeout:4000});
+      return false;
+    }
+
     if(!this.validateService.validatePassword(user.password)){
       this.flashMessage.show('Password must be at least 6 characters long, and must contain at leat one uppercase letter, lowercase letter, a symbol, and a number', {cssClass: 'alert-danger', timeout: 6000});
       return false;

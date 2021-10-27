@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var uniqueValidator = require('mongoose-unique-validator')
 const bcrypt = require("bcryptjs");
 const config = require("../config/database");
 
@@ -9,7 +10,8 @@ let UserSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        required:'Email is required'
+        required:'Email is required',
+        unique:true
     },
     phone:{
         type:Number,
@@ -21,6 +23,7 @@ let UserSchema = new mongoose.Schema({
     }
 });
 
+UserSchema.plugin(uniqueValidator)
 const User = module.exports = mongoose.model('User',UserSchema);
 
 module.exports.getUserbyId = function(id,callback){

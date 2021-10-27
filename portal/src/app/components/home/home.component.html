@@ -1,34 +1,40 @@
+ <div style="overflow-x: hidden;">
  <div >
-  <img src="assets/business.jpg" class="img-responsive" alt="Jeans" style="width:100%;min-height:350px;max-height:400px;">
-  <div class="centered">Welcome</div>
-  <div class="centered1">Start exploring</div>
+  <img id="img1" src="assets/business.jpg" class="img-responsive" alt="Jeans" style="width:100%;min-height:350px;max-height:380px;" media="(max-width:400px)">
+  <div class="centered">Welcome</div><br>
+  <div class="centered1">Start exploring</div><br><br>
   <div class="btn-toolbar centered2">
   <a *ngIf="!authService.loggedIn()" routerLink="login" class="btn btn-lg btn-success">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a *ngIf="!authService.loggedIn()" routerLink="register" class="btn btn-lg btn-primary">Register</a>
   </div>
 </div> 
 
-<br>
-<div class="container-fluid bg-3 text-center">    
+
+<div id="ss"  style="margin-top: -240px" class="container-fluid bg-3 text-center centered3" media="(max-width:770px)">    
     <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;color: brown;">What We Do</h3><br>
-    <div class="row">
-      <div class="col-sm-3">
+    <div style="justify-content: center;" class="row">
+      <div class="col-sm-3 card">
        <img src="assets/www.png" class="img-responsive" style="width:75%" alt="Image">
        
-        <p>Website</p>
-        
-      </div>
-      <div class="col-sm-3"> 
+        <p style="font-size: 3vw">Website</p>
+        <br>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-sm-3 card"> 
         <img src="assets/settings.png" class="img-responsive" style="width:75%" alt="Image">
-        <p>Tools</p>    
-      </div>
-      <div class="col-sm-3"> 
+        <p style="font-size: 3vw">Tools</p>    
+        <br>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-sm-3 card"> 
         <img src="assets/insight.png" class="img-responsive" style="width:75%" alt="Image">
-        <p>Communication</p>    
-      </div>
-      <div class="col-sm-3"> 
+        <p style="font-size: 3vw;">Communication</p>    
+        <br>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-sm-3 card"> 
         <img src="assets/responsive.png" class="img-responsive" style="width:75%" alt="Image">
-        <p>Design</p>    
+        <p style="font-size: 3vw">Design</p>    
+        <br>
       </div>
     </div>
 </div>
+</div>
+

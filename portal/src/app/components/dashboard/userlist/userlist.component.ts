@@ -3,8 +3,10 @@ import { NewuserService } from 'src/app/services/newuser.service';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { DialogService } from 'src/app/services/dialog.service';
 
 import { NewUser } from 'src/app/services/new-user.model';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-userlist',
@@ -15,7 +17,8 @@ export class UserlistComponent implements OnInit {
 
   constructor(public newUserService:NewuserService,
     private flashMessage:FlashMessagesService,
-    private router:Router) { }
+    private router:Router,
+    private dialogService:DialogService) { }
 
   ngOnInit(): void {
     this.refreshUserList();
@@ -25,8 +28,8 @@ export class UserlistComponent implements OnInit {
   refreshUserList(){
     this.newUserService.getUserList().subscribe((res)=>{
       this.newUserService.users = res as NewUser[];
-    })
-  }
+      })
+}
 
   //For update operation(CRUD)
   onEdit(usr:NewUser){
@@ -37,14 +40,17 @@ export class UserlistComponent implements OnInit {
 
   //For delete operation(CRUD)
   onDelete(_id:string){
-    if(confirm('Do you want to delete this record ?')==true){
-      this.newUserService.deleteUser(_id).subscribe((res)=>{
-        this.refreshUserList();
-        this.flashMessage.show('Record deleted successfully', {
-          cssClass: 'alert-success',
-          timeout: 4000});
-      })
-    }
+    this.dialogService.openConfirmDialog('Do you want to delete this record ?')
+    .afterClosed().subscribe(res=>{
+      if(res){
+        this.newUserService.deleteUser(_id).subscribe((res)=>{
+          this.refreshUserList();
+          this.flashMessage.show('Record deleted successfully',{
+            cssClass: 'alert-success',
+          timeout:3000});
+        })
+      }
+    });
   }
 
 }

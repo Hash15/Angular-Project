@@ -22,7 +22,9 @@ export class NewuserService {
   }
 
   getUserList(){
+   // console.log(this.http.get(this.baseURL))
     return this.http.get(this.baseURL);
+    
   }
 
   putUser(usr:NewUser){

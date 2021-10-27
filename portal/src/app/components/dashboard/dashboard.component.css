@@ -1,0 +1,12 @@
+@media (min-width:780px){
+    #an {
+      display: none;
+    }
+   }
+
+   .flex {
+    display: flex;
+  }
+  .no-wrap {
+    flex-wrap: wrap;
+  }

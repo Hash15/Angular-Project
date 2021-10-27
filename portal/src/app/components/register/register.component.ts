@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ValidateService } from 'src/app/services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -69,7 +70,7 @@ ngOnInit(){
         this.flashMessage.show('Registration Successful', {cssClass: 'alert-success', timeout: 5000});
         this.router.navigate(['login']);
       }else{
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+        this.flashMessage.show('Please enter unique email', {cssClass: 'alert-danger', timeout: 3000});
         this.router.navigate(['register']);
       }
     });

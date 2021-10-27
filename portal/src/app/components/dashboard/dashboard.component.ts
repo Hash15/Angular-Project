@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewuserService } from 'src/app/services/newuser.service';
 import { NgForm } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 import { NewUser } from 'src/app/services/new-user.model';
 
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
   selectedUser: NewUser = new NewUser;
 
   constructor(public newUserService:NewuserService,
-      private flashMessage:FlashMessagesService) { }
+      private flashMessage:FlashMessagesService,
+      private router:Router) { }
 
   ngOnInit(): void {
     this.selectedUser = this.newUserService.getter();
@@ -33,7 +35,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  //For Create operation(CRUD)
+  //For Create and Update operation(CRUD)
   add(form:NgForm){
     if(form.value._id == ""){
       this.newUserService.postUser(form.value).subscribe((res)=>{
@@ -41,6 +43,7 @@ export class DashboardComponent implements OnInit {
       this.flashMessage.show('User added successfully', {
         cssClass: 'alert-success',
         timeout: 4000});
+        this.router.navigate(['/dashboard/userlist']);
       })
     }else{
         this.newUserService.putUser(form.value).subscribe((res)=>{

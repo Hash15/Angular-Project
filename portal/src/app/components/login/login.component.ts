@@ -24,12 +24,13 @@ export class LoginComponent implements OnInit {
 
   
   ngOnInit(){
-    //To renavigate the user to peofile route if he tries to go back to login/register after login
+//To renavigate the user to peofile route if he tries to go back to login/register successful after login
     if(this.authService.loggedIn()){
       this.router.navigate(['profile']);
     }
   }
 
+  //for user login with validation and authentication
   login(){
     const user = {
       name:this.userName,

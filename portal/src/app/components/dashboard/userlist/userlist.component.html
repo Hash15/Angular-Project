@@ -1,4 +1,4 @@
-<div>
+<div  style="overflow-x: hidden;">
 <table class=" table table-hover">
     <thead>
       <tr class="table-primary">
@@ -13,7 +13,7 @@
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.phone}}</td>
-        <td>
+        <td class="flex no-wrap">
             <a class="btn btn-outline-primary" (click)="onEdit(user)">
                 <i class="material-icons">edit</i>
             </a>&nbsp;&nbsp;
@@ -24,4 +24,10 @@
       </tr>
     </tbody>
   </table>
+  <div class="center">
+    <a  routerLink="../" class="btn btn-lg btn-success">Add User</a>
 </div>
+  </div>
+
+  
+  

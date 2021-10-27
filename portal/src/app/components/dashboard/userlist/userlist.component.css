@@ -1,0 +1,13 @@
+.center {
+    
+    position: absolute;
+    left: 40%;
+   
+  }
+
+  .flex {
+    display: flex;
+  }
+  .no-wrap {
+    flex-wrap: no-wrap;
+  }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { NewuserService } from './services/newuser.service';
 import { UserlistComponent } from './components/dashboard/userlist/userlist.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MaterialModule } from './material/material.module';
+import { DialogService } from './services/dialog.service';
+//import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -31,7 +36,8 @@ import { UserlistComponent } from './components/dashboard/userlist/userlist.comp
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    UserlistComponent
+    UserlistComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +45,13 @@ import { UserlistComponent } from './components/dashboard/userlist/userlist.comp
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    MaterialModule,
+    BrowserAnimationsModule
+    //MatDialogModule
   ],
-  providers: [AuthService,ValidateService,FlashMessagesService,AuthGuard,NewuserService],
-  bootstrap: [AppComponent]
+  providers: [AuthService,ValidateService,FlashMessagesService,AuthGuard,DialogService],
+  bootstrap: [AppComponent],
+  entryComponents:[ConfirmDialogComponent]
 })
 export class AppModule { }

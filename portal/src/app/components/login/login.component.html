@@ -12,24 +12,28 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center ">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form (ngSubmit)="login()">
+                  <form #loginForm="ngForm" (ngSubmit)="login()">
   
                     <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h3>
                     
                     <div class="form-outline mb-4">
                         <label class="form-label">Username</label>
-                      <input [(ngModel)]="userName" name ="userName" type="text" class="form-control form-control-lg" />
-                      
+                      <input [(ngModel)]="userName" #name="ngModel" name ="userName" type="text" class="form-control form-control-lg" [class.is-invalid]="name.invalid && name.touched" required/>
+                      <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors.required">Userame is required</small>
+                      </div> 
                     </div>
   
                     <div class="form-outline mb-4">
                         <label class="form-label">Password</label>
-                      <input [(ngModel)]="password" name ="password" type="password" class="form-control form-control-lg" />
-                      
+                      <input [(ngModel)]="password" #p="ngModel" name ="password" type="password" class="form-control form-control-lg" [class.is-invalid]="p.invalid && p.touched" required/>
+                      <div *ngIf="p.errors && (p.invalid && p.touched)">
+                        <small class="text-danger" *ngIf="p.errors.required">Password is required</small>
+                      </div> 
                     </div>
   
                     <div class="pt-1 mb-4">
-                        <button type="submit" class="btn btn-primary btn-lg"
+                        <button [disabled]='!loginForm.valid' type="submit" class="btn btn-primary btn-lg"
                         style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                     </div>
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/register" style="color: #393f81;">Register here</a></p>
